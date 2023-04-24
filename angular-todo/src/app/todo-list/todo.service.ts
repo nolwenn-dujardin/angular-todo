@@ -12,13 +12,13 @@ import { formatDate } from '@angular/common';
 })
 export class TodoService {
   private handleError: HandleError; // for general error handling (can be improved)
-  private todoBaseUrl = `${environment.apiUrl}/tasks`;  // URL to todo api   
+  private todoBaseUrl = `${environment.apiUrl}/tasks`;  // URL to todo api
 
   constructor(private http: HttpClient, httpErrorHandler: HttpErrorHandler) {
     this.handleError = httpErrorHandler.createHandleError('TodoService');
   }
 
-  
+
   public getTodoList(): Observable<TodoItem[]> {
     return this.http.get<TodoItem[]>(this.todoBaseUrl)
       .pipe(
@@ -51,7 +51,8 @@ export class TodoService {
         label: todoItem.label,
         description: todoItem.description,
         category: todoItem.category,
-        done: this._getDonePropertyResult(todoItem)
+        done: this._getDonePropertyResult(todoItem),
+        priority: todoItem.priority
       })
       .pipe(
         catchError(this.handleError('editTodoItem', [])),
@@ -70,6 +71,7 @@ export class TodoService {
     let completedDate = isCompleted
       ? new Date(parts[2], parts[1] - 1, parts[0]) // formatting with our specified version
       : null;
+    let priority = (/true/i).test(dbTodoItem.priority);
 
     return new TodoItem(
       dbTodoItem.id,
@@ -77,7 +79,8 @@ export class TodoService {
       dbTodoItem.description,
       dbTodoItem.category,
       isCompleted,
-      completedDate
+      completedDate,
+      priority
     )
   }
 
@@ -91,4 +94,5 @@ export class TodoService {
 
     return done;
   }
+
 }

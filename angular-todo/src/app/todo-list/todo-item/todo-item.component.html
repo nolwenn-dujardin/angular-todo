@@ -29,6 +29,19 @@
                 </button>
             </div>
         </div>
+
+        <div *ngIf="todoItem.isCompleted">
+          Completed on {{todoItem.completedOn | date: 'MMM d, y'}}
+        </div>
+        <div *ngIf="todoItem.priority">
+          <!-- {{todoItem.priority}} -->
+          High priority
+        </div>
+        <div *ngIf="!todoItem.priority">
+          <!-- {{todoItem.priority}} -->
+          Low priority
+        </div>
+
     </div>
 </div>
 <ng-template #deleteConfirmation let-c="close" let-d="dismiss">

@@ -13,7 +13,7 @@ import { TodoService } from './todo.service';
 })
 export class TodoListComponent implements OnInit {
   public todos$: TodoItem[]; // async list of Todo items
-  public todoCategories: TodoCategory[]; // todo item categories 
+  public todoCategories: TodoCategory[]; // todo item categories
   public selectedFilterType: string; // the current filter type (like 'by label) which used to fitler todo by
   public newTodo: TodoItem = new TodoItem(0, '', '', null, false); // just an empty todo for add modal
   public filterValue: string;
@@ -30,7 +30,7 @@ export class TodoListComponent implements OnInit {
 
   private _todoList: TodoItem[] = [];  // all todo items
   private _filterSubject: BehaviorSubject<string> = new BehaviorSubject('');
-  private readonly _filterDelayTime: number = 500; // user typing delay before call the filtering  
+  private readonly _filterDelayTime: number = 500; // user typing delay before call the filtering
 
   private _filterBSDestroyed$: Subject<string> = new Subject();
   private _getTodoListDestroyed$: Subject<TodoItem[]> = new Subject();
@@ -67,6 +67,9 @@ export class TodoListComponent implements OnInit {
       .subscribe(todos => {
         this._todoList = todos;
         this.todoCategories = [... new Set(this._todoList.map(t => t.category))]; // making the taken categories unique
+
+
+        console.log(todos)
       });
   }
 
@@ -125,7 +128,8 @@ export class TodoListComponent implements OnInit {
           todoItem.description,
           todoItem.category,
           todoItem.isCompleted,
-          todoItem.completedOn));
+          todoItem.completedOn,
+          todoItem.priority));
       });
   }
 
@@ -141,6 +145,7 @@ export class TodoListComponent implements OnInit {
           updatedTodoItem.label = todoItem.label;
           updatedTodoItem.isCompleted = todoItem.isCompleted;
           updatedTodoItem.completedOn = todoItem.completedOn;
+          updatedTodoItem.priority = todoItem.priority;
         }
       });
   }
