@@ -1,3 +1,12 @@
+Ce dépôt est un fork du projet Angular Todo développé par arsenk01 disponible [ici](https://github.com/arsenk01/angular-todo) (https://github.com/arsenk01/angular-todo)
+
+Modifications effectuées :
+<ul>
+    <li> Ajout de la date de complétion d'une tâche </li>
+    <li> Affichage de la priorité d'une tâche </li>
+    <li> Ajout d'un bouton supprimant toutes les tâches terminées </li>
+</ul>
+
 # Angular Todo app
 _Simple todo application, that is easy to understand and extend_
 
