@@ -1,3 +1,9 @@
+<style>
+  .high_priority {
+    background-color: #f01a1a;
+  }
+</style>
+
 <div class="container todo-wrap">
     <div class="row" [ngClass]="{'completed' : todoItem.isCompleted}" [hidden]="todoItem.isHidden">
         <div class="col-md-3 text-center text-md-start">{{todoItem.label}}</div>
@@ -33,7 +39,7 @@
         <div *ngIf="todoItem.isCompleted">
           Completed on {{todoItem.completedOn | date: 'MMM d, y'}}
         </div>
-        <div *ngIf="todoItem.priority">
+        <div *ngIf="todoItem.priority" class="high_priority">
           <!-- {{todoItem.priority}} -->
           High priority
         </div>

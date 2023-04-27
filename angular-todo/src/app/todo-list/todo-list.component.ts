@@ -161,4 +161,12 @@ export class TodoListComponent implements OnInit {
       l.isHidden = l[searchType].toLocaleLowerCase().indexOf(searchValue) === -1; // search on todo property based on filter type
     });
   }
+
+  public removeDoneTodo(): void {
+      this._todoList.forEach( (value) => {
+        if(value.isCompleted) {
+          this.deleteTodoItem(value.id)
+        }
+      } )
+  }
 }

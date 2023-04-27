@@ -1,30 +1,9 @@
 {
   "tasks": [
     {
-      "id": 3,
-      "label": "Use UTC date 4",
-      "description": "Use UTC conversion for dates",
-      "category": "bureaucracy",
-      "done": "24-04-2023"
-    },
-    {
-      "id": 4,
-      "label": "Db updates",
-      "description": "Update the database to contain categories independently and get them",
-      "category": "bureaucracy",
-      "done": "24-04-2023"
-    },
-    {
       "id": 5,
       "label": "Read service method returns",
       "description": "Read the last todo value from service call",
-      "category": "bureaucracy",
-      "done": false
-    },
-    {
-      "id": 6,
-      "label": "Date manipulations",
-      "description": "Use current culture for date formatting",
       "category": "bureaucracy",
       "done": false
     },
@@ -42,13 +21,6 @@
       "category": "house",
       "done": false,
       "priority": true
-    },
-    {
-      "id": 14,
-      "label": "Add language support",
-      "description": "Translations (at least for EN, FR)",
-      "category": "bureaucracy",
-      "done": false
     },
     {
       "id": 15,
@@ -69,13 +41,6 @@
       "label": "Upgrade Angular",
       "description": "From 12 to 15",
       "category": "house",
-      "done": false
-    },
-    {
-      "id": 14,
-      "label": "Add language support",
-      "description": "Translations (at least for EN, FR)",
-      "category": "bureaucracy",
       "done": false
     }
   ]
